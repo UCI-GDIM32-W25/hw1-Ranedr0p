@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     private void Start ()
     {
-        
+        debug.log("bread");
     }
 
     private void Update()
