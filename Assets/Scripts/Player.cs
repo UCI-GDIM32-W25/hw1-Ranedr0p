@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     private void Start ()
     {
-        
+        _numSeedsLeft = _numSeeds;
     }
 
     private void Update()
@@ -34,10 +34,16 @@ public class Player : MonoBehaviour
         {
             _playerTransform.Translate(Vector3.right * _speed * Time.deltaTime);
         }
+
         if (Input.GetKey(KeyCode.Space))
         {
             PlantSeed();
+            _numSeedsLeft--; 
+            _numSeedsPlanted++; 
+            //needs limit so you they don't go over or under 
         }
+
+        _plantCountUI.UpdateSeeds(_numSeedsLeft, _numSeedsPlanted); 
     }
 
     public void PlantSeed ()
